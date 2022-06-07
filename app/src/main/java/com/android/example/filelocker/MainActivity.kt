@@ -16,10 +16,12 @@
 
 package com.android.example.filelocker
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.filelocker.databinding.ActivityMainBinding
+import com.example.library.MainActivity
 
 
 /**
@@ -34,5 +36,11 @@ class MainActivity : AppCompatActivity() {
         DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main).apply {
             lifecycleOwner = this@MainActivity
         }
+
+        unused()
+    }
+
+    fun unused(){
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }

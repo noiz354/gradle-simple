@@ -18,6 +18,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
+repositories {
+    maven {
+        url = uri("https://maven.pkg.github.com/noiz354/gradle-simple")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+        }
+    }
+}
+
 android {
     compileSdkVersion 32
     defaultConfig {
@@ -63,7 +73,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "androidx.security:security-crypto:$security_crypto_version"
-    implementation project(":library")
+//    implementation project(":library")
+    implementation "com.example.library:library:1.0.2"
 
     // Material
     implementation "com.google.android.material:material:$material_version"
